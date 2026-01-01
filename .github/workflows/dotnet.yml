@@ -1,0 +1,36 @@
+name: Build ASP.NET Web App
+permissions:
+  contents: read
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  schedule:
+    - cron: "0 0 * * 1"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Action checkout repo
+      uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 10.0.1
+    
+    - name: Restore dependencies
+      run: dotnet restore WebRedirector.csproj
+    
+    - name: Build
+      run: dotnet publish WebRedirector.csproj -c Release -o ./Build
+    
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v6.0.0
+      with:
+        name: ASP.NET Web App (Simple Web Redirector)
+        path: Build
+        retention-days: 14
