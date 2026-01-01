@@ -8,8 +8,8 @@ build:
   tags:
     - default
   script:
-    - dotnet restore MyApps.csproj
-    - dotnet publish MyApps.csproj -c Release -o ./Build
+    - dotnet restore WebRedirector.csproj
+    - dotnet publish WebRedirector.csproj -c Release -o ./Build
   artifacts:
     paths:
       - ./Build
