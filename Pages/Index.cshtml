@@ -1,0 +1,30 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div>
+    <div id="displayOnNoSecure" class="alert alert-danger alert-dismissible fade d-none" role="alert">
+        <strong>Warning!</strong> Your connection is not secured.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div class="card">
+        <h5 class="card-header">Featured</h5>
+        <div class="card-body">
+            <h5 class="card-title">Enter an alias to redirect</h5>
+            <div class="mb-3">
+                <div class="input-group has-validation">
+                    <span class="input-group-text" id="curr-href-location"></span>
+                    <input type="text" class="form-control" id="aliasInput" aria-describedby="basic-addon3 basic-addon4">
+                    <div id="input-warning-box" class="invalid-feedback">
+                        An alias should only have characters and numbers.
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a onclick="startRedirecting()" href="#" class="btn btn-primary">Go</a>
+            </div>
+        </div>
+    </div>
+</div>

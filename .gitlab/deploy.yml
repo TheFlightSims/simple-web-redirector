@@ -1,0 +1,15 @@
+stages:
+  - build
+
+image: mcr.microsoft.com/dotnet/sdk:10.0
+
+build:
+  stage: "build"
+  tags:
+    - default
+  script:
+    - dotnet restore MyApps.csproj
+    - dotnet publish MyApps.csproj -c Release -o ./Build
+  artifacts:
+    paths:
+      - ./Build

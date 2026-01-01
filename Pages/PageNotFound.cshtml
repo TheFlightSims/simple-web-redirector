@@ -1,0 +1,18 @@
+﻿@page
+@model WebRedirector.Pages.PageNotFoundModel
+@{
+    ViewData["Title"] = "Not Found";
+}
+
+<div>
+    <div id="displayOnNoSecure" class="alert alert-danger alert-dismissible fade d-none" role="alert">
+        <strong>Warning!</strong> Your connection is not secured.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div class="card text-center">
+        <div class="card-body">
+            <h5 class="card-title">Page Not Found</h5>
+            <a onclick="history.back()" href="#" class="btn btn-primary">Go back</a>
+        </div>
+    </div>
+</div>

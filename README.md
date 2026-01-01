@@ -1,2 +1,1 @@
-# simple-web-redirector
-Simple Web Redirector
+# Simple Web App
