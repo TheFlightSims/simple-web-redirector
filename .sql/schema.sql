@@ -59,7 +59,7 @@ BEGIN
 	IF EXISTS (
 		SELECT 1
 			FROM [dbo].[urls] AS u
-			WHERE u.alias = @alias
+			WHERE u.alias = @alias COLLATE SQL_Latin1_General_CP1_CI_AS
 	) BEGIN
 		RAISERROR ('This alias is already existed.', 16, 1);
 		RETURN;
@@ -68,7 +68,7 @@ BEGIN
 	IF EXISTS (
 		SELECT 1
 			FROM [dbo].[urls] AS u
-			WHERE u.destination = @destination
+			WHERE u.destination = @destination COLLATE SQL_Latin1_General_CP1_CI_AS
 	) BEGIN
 		RAISERROR ('Same destination detected.', 16, 1);
 		RETURN;
